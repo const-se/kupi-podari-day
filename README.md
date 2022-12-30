@@ -15,15 +15,18 @@
   - [Users](#users)
     - [/users/me](#usersme)
     - [/users/me/wishes](#usersmewishes)
-    - [/users/:username](#users--username)
-    - [/users/:username/wishes](#users--usernamewishes)
+    - [/users/:username](#usersusername)
+    - [/users/:username/wishes](#usersusernamewishes)
     - [/users/find](#usersfind)
   - [Wishes](#wishes)
     - [/wishes](#wishes-1)
     - [/wishes/last](#wisheslast)
     - [/wishes/top](#wishestop)
-    - [/wishes/:id](#wishes--id)
-    - [/wishes/:id/copy](#wishes--idcopy)
+    - [/wishes/:id](#wishesid)
+    - [/wishes/:id/copy](#wishesidcopy)
+  - [Wishlists](#wishlists)
+    - [/wishlistlists](#wishlistlists)
+    - [/wishlistlists/:id](#wishlistlistsid)
 
 ## Сущности
 
@@ -491,4 +494,132 @@
       "raised": 50,
       "description": "...",
       "copied": 0
+    }
+
+### Wishlists
+
+#### /wishlistlists
+
+Метод: `GET`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "name": "...",
+        "description": "...",
+        "image": "...",
+        "owner": {
+          "id": 123,
+          "createdAt": "...",
+          "updatedAt": "...",
+          "username": "...",
+          "about": "...",
+          "avatar": "..."
+        }
+      },
+      ...
+    ]
+
+---
+
+Метод: `POST`
+
+Параметры:
+
+- `name`
+- `description`
+- `image`
+- `itemsId`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "description": "...",
+      "image": "..."
+    }
+
+#### /wishlistlists/:id
+
+Метод: `GET`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "name": "...",
+        "description": "...",
+        "image": "...",
+        "owner": {
+          "id": 123,
+          "createdAt": "...",
+          "updatedAt": "...",
+          "username": "...",
+          "about": "...",
+          "avatar": "..."
+        },
+        "items": [
+          {
+            "id": 123,
+            "createdAt": "...",
+            "updatedAt": "...",
+            "name": "...",
+            "link": "...",
+            "image": "...",
+            "price": 100,
+            "raised": 50,
+            "description": "...",
+            "copied": 0
+          },
+          ...
+        ]
+      },
+      ...
+    ]
+
+---
+
+Метод: `PATCH`
+
+Параметры:
+
+- `name`
+- `description`
+- `image`
+- `itemsId`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "description": "...",
+      "image": "..."
+    }
+
+---
+
+Метод: `DELETE`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "description": "...",
+      "image": "..."
     }
