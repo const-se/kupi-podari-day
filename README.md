@@ -18,6 +18,12 @@
     - [/users/:username](#users--username)
     - [/users/:username/wishes](#users--usernamewishes)
     - [/users/find](#usersfind)
+  - [Wishes](#wishes)
+    - [/wishes](#wishes-1)
+    - [/wishes/last](#wisheslast)
+    - [/wishes/top](#wishestop)
+    - [/wishes/:id](#wishes--id)
+    - [/wishes/:id/copy](#wishes--idcopy)
 
 ## Сущности
 
@@ -303,3 +309,186 @@
       },
       ...
     ]
+
+### Wishes
+
+#### /wishes
+
+Метод: `POST`
+
+Параметры:
+
+- `name`
+- `link`
+- `image`
+- `price`
+- `description`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "link": "...",
+      "image": "...",
+      "price": 100,
+      "raised": 50,
+      "description": "...",
+      "copied": 0
+    }
+
+#### /wishes/last
+
+Метод: `GET`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "name": "...",
+        "link": "...",
+        "image": "...",
+        "price": 100,
+        "raised": 50,
+        "description": "...",
+        "copied": 0
+      },
+      ...
+    ]
+
+#### /wishes/top
+
+Метод: `GET`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "name": "...",
+        "link": "...",
+        "image": "...",
+        "price": 100,
+        "raised": 50,
+        "description": "...",
+        "copied": 0
+      },
+      ...
+    ]
+
+#### /wishes/:id
+
+Метод: `GET`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "link": "...",
+      "image": "...",
+      "price": 100,
+      "raised": 50,
+      "description": "...",
+      "copied": 0,
+      "owner": {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "username": "...",
+        "about": "...",
+        "avatar": "..."
+      },
+      "offers": [
+        {
+          "id": 123,
+          "createdAt": "...",
+          "updatedAt": "...",
+          "amount": "...",
+          "hidden": true,
+          "user": {
+            "id": 123,
+            "createdAt": "...",
+            "updatedAt": "...",
+            "username": "...",
+            "about": "...",
+            "avatar": "..."
+          }
+        },
+        ...
+      ]
+    }
+
+---
+
+Метод: `PATCH`
+
+Параметры:
+
+- `name`
+- `link`
+- `image`
+- `price`
+- `description`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "link": "...",
+      "image": "...",
+      "price": 100,
+      "raised": 50,
+      "description": "...",
+      "copied": 0
+    }
+
+---
+
+Метод: `DELETE`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "link": "...",
+      "image": "...",
+      "price": 100,
+      "raised": 50,
+      "description": "...",
+      "copied": 0
+    }
+
+#### /wishes/:id/copy
+
+Метод: `POST`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "name": "...",
+      "link": "...",
+      "image": "...",
+      "price": 100,
+      "raised": 50,
+      "description": "...",
+      "copied": 0
+    }
