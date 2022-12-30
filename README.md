@@ -13,6 +13,11 @@
     - [/signin](#signin)
     - [/signup](#signup)
   - [Users](#users)
+    - [/users/me](#usersme)
+    - [/users/me/wishes](#usersmewishes)
+    - [/users/:username](#users--username)
+    - [/users/:username/wishes](#users--usernamewishes)
+    - [/users/find](#usersfind)
 
 ## Сущности
 
@@ -178,3 +183,123 @@
 
 ### Users
 
+#### /users/me
+
+Метод: `GET`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "username": "...",
+      "about": "...",
+      "avatar": "...",
+      "email": "..."
+    }
+
+---
+
+Метод: `PATCH`
+
+Параметры:
+
+- `avatar` (опциональный)
+- `about` (опциональный)
+- `email` (опциональны)
+- `password` (опциональный)
+- `username` (опциональный)
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "username": "...",
+      "about": "...",
+      "avatar": "...",
+      "email": "..."
+    }
+
+#### /users/me/wishes
+
+Метод: `GET`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "name": "...",
+        "link": "...",
+        "image": "...",
+        "price": 100,
+        "raised": 50,
+        "description": "...",
+        "copied": 0
+      },
+      ...
+    ]
+
+#### /users/:username
+
+Метод: `GET`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "username": "...",
+      "about": "...",
+      "avatar": "..."
+    }
+
+#### /users/:username/wishes
+
+Метод: `GET`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "name": "...",
+        "link": "...",
+        "image": "...",
+        "price": 100,
+        "raised": 50,
+        "description": "...",
+        "copied": 0
+      },
+      ...
+    ]
+
+#### /users/find
+
+Метод: `POST`
+
+Параметры:
+
+- `query`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "username": "...",
+        "about": "...",
+        "avatar": "..."
+      },
+      ...
+    ]
