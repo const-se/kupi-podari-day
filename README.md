@@ -27,6 +27,9 @@
   - [Wishlists](#wishlists)
     - [/wishlistlists](#wishlistlists)
     - [/wishlistlists/:id](#wishlistlistsid)
+  - [Offers](#offers)
+    - [/offers](#offers-1)
+    - [/offers/:id](#offersid)
 
 ## Сущности
 
@@ -622,4 +625,77 @@
       "name": "...",
       "description": "...",
       "image": "..."
+    }
+
+### Offers
+
+#### /offers
+
+Метод: `GET`
+
+Ответ:
+
+    [
+      {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "amount": "...",
+        "hidden": true
+      },
+      ...
+    ]
+
+---
+
+Метод: `POST`
+
+Параметры:
+
+- `amount`
+- `hidden`
+- `itemId`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "amount": "...",
+      "hidden": true
+    }
+
+#### /offers/:id
+
+Метод: `GET`
+
+Ответ:
+
+    {
+      "id": 123,
+      "createdAt": "...",
+      "updatedAt": "...",
+      "amount": "...",
+      "hidden": true,
+      "user": {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "username": "...",
+        "about": "...",
+        "avatar": "..."
+      },
+      "item": {
+        "id": 123,
+        "createdAt": "...",
+        "updatedAt": "...",
+        "name": "...",
+        "link": "...",
+        "image": "...",
+        "price": 100,
+        "raised": 50,
+        "description": "...",
+        "copied": 0
+      }
     }
